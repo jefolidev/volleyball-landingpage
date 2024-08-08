@@ -1,7 +1,7 @@
 const Calendar = () => {
   return (
     <>
-      <div className="w-[31rem] h-[31rem] bg-light-background rounded-2xl "></div>
+      <div className="w-[31rem] h-[31rem] bg-light-background dark:bg-dark-fonts rounded-2xl "></div>
     </>
   )
 }

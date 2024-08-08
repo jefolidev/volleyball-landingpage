@@ -46,8 +46,8 @@ const Trains = () => {
         {cards.map((card) => (
           <SwiperSlide key={card.index}>
             <div className="flex justify-center py-12">
-              <div className="relative  w-[42rem] h-[36rem] bg-white rounded-xl">
-                <div className="absolute inset-x-0 top-0 h-2/3 bg-light-yellow rounded-t-xl"></div>
+              <div className="relative  w-[42rem] h-[36rem] bg-white dark:bg-dark-background rounded-xl">
+                <div className="absolute inset-x-0 top-0 h-2/3 bg-light-yellow dark:bg-dark-blue rounded-t-xl"></div>
                 {card.name}
               </div>
             </div>

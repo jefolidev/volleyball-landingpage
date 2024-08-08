@@ -8,7 +8,7 @@ import Treinos from '@/components/treinos/Treinos'
 
 export default function Home() {
   return (
-    <main className="bg-light-background ">
+    <main className="bg-light-background dark:bg-dark-background">
       <Navbar />
       <Main />
       <Treinos />

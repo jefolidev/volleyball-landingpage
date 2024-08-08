@@ -1,7 +1,7 @@
 const BusyDays = () => {
   return (
     <>
-      <div className="w-[31rem] h-[31rem] bg-light-fonts rounded-2xl "></div>
+      <div className="w-[31rem] h-[31rem] bg-light-fonts dark:bg-dark-background rounded-2xl "></div>
     </>
   )
 }
