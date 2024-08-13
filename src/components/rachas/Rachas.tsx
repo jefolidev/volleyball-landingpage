@@ -6,7 +6,7 @@ import locationIcon from '../../../public/location-icon.svg'
 const Rachas = () => {
   const { theme } = useTheme()
   return (
-    <main className="w-full h-full flex  items-center px-36 py-12 ">
+    <main id="rachas" className="w-full h-full flex  items-center px-36 py-12 ">
       <section className="w-1/2 h-full flex flex-col gap-2">
         <h1 className="text-light-fonts dark:text-dark-fonts text-4xl font-sequel">
           Rachas

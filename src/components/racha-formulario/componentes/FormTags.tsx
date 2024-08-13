@@ -1,6 +1,8 @@
+import { useTheme } from '@/contexts/themeContext'
 import { useState } from 'react'
 
 const FormTags = () => {
+  const [activeButtons, setActiveButtons] = useState<number[]>([])
   const [miscTags] = useState([
     {
       index: 1,
@@ -33,13 +35,44 @@ const FormTags = () => {
       tagName: 'Intermediário',
     },
   ])
+
+  const { theme } = useTheme()
+
+  const selectButtonHandler = (index: number) => {
+    activeButtons.includes(index)
+      ? setActiveButtons(activeButtons.filter((i) => i !== index))
+      : setActiveButtons([...activeButtons, index])
+  }
+  const getButtonStyle = (index: number) => {
+    if (theme === 'light') {
+      return {
+        backgroundColor: activeButtons.includes(index)
+          ? 'rgb(12,22,24)'
+          : 'rgb(209, 213, 219)',
+        color: activeButtons.includes(index)
+          ? 'rgb(209, 213, 219)'
+          : 'rgb(12,22,24)',
+      }
+    } else {
+      return {
+        backgroundColor: activeButtons.includes(index)
+          ? 'rgb(209, 213, 219)'
+          : 'rgb(12,22,24)',
+        color: activeButtons.includes(index)
+          ? 'rgb(12,22,24)'
+          : 'rgb(209, 213, 219)',
+      }
+    }
+  }
   return (
     <>
       <div>
         {miscTags.map((tag) => (
           <button
             key={tag.index}
-            className="text-center font-sequel text-light-fonts bg-gray-100 w-36 h-10 hover:bg-light-fonts hover:text-gray-200 p-2 mx-2 rounded-full"
+            style={getButtonStyle(tag.index)}
+            className="text-center font-sequel dark:bg-gray-100 w-36 h-10 dark p-2 mx-2 rounded-full"
+            onClick={() => selectButtonHandler(tag.index)}
           >
             {tag.tagName}
           </button>
@@ -49,7 +82,16 @@ const FormTags = () => {
         {dificultyTags.map((tag) => (
           <button
             key={tag.index}
-            className="text-center font-sequel text-light-fonts bg-gray-100 w-36 h-10 hover:bg-light-fonts hover:text-gray-200 p-2 mx-2 rounded-full"
+            style={{
+              backgroundColor: activeButtons.includes(tag.index)
+                ? 'rgb(12,22,24)'
+                : 'rgb(209, 213, 219)',
+              color: activeButtons.includes(tag.index)
+                ? 'rgb(209, 213, 219)'
+                : 'rgb(12,22,24)',
+            }}
+            className="text-center font-sequel text-light-fonts bg-gray-300 dark:bg-gray-100 w-36 h-10 dark dark p-2 mx-2 rounded-full"
+            onClick={() => selectButtonHandler(tag.index)}
           >
             {tag.tagName}
           </button>

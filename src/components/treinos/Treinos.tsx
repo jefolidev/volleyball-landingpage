@@ -2,7 +2,7 @@ import Trains from './components/Trains'
 
 const Treinos = () => {
   return (
-    <main className="px-8 my-32 ">
+    <main id="treinos" className="px-8 my-32 ">
       <div className="w-full h-full p-5 bg-gray-300 dark:bg-zinc-900 rounded-xl flex justify-around items-center">
         <section className="flex flex-col items-start justify-start gap-7 w-1/2 px-20">
           <h1 className="font-sequel text-light-fonts dark:text-dark-fonts text-6xl font-medium">

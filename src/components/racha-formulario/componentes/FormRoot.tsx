@@ -6,13 +6,40 @@ import FormInputs from './FormInputs'
 import FormTags from './FormTags'
 
 import { useTheme } from '@/contexts/themeContext'
-import submitIconWhite from '../../../../public/form-icons/dark-icons/submit-icon-dark.svg'
+import { useState } from 'react'
+import submitIconBlack from '../../../../public/form-icons/dark-icons/submit-icon-dark.svg'
 import submitIcon from '../../../../public/form-icons/submitIcon.svg'
 
 const Form = () => {
+  const [isHovered, setIsHovered] = useState(false)
+  const [image, setImage] = useState(submitIcon)
   const { theme } = useTheme()
+
+  const mouseOverHandler = () => {
+    setIsHovered(true)
+    theme === 'light' ? setImage(submitIconBlack) : setImage(submitIconBlack)
+  }
+  const mouseLeaveHandler = () => {
+    setIsHovered(false)
+    theme === 'light' ? setImage(submitIcon) : setImage(submitIcon)
+  }
+
+  const buttonStyle = {
+    backgroundColor: isHovered ? '#afafaf' : '#0F0D0D',
+    borderRadius: '9999px',
+    width: '3rem',
+    height: '3rem',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  }
   return (
-    <form action="" method="post" className="flex flex-col items-center p-8">
+    <form
+      action=""
+      method="post"
+      className="flex flex-col items-center p-8"
+      onSubmit={(e) => e.preventDefault()}
+    >
       <div className="flex flex-col gap-8">
         <div className="flex gap-12">
           <FormInputs placeholder="Nome do local" />
@@ -61,10 +88,16 @@ const Form = () => {
       <div className="flex flex-col items-center justify-center gap-5 py-8">
         <FormTags />
       </div>
-      <button className="w-12 h-12 rounded-full bg-light-fonts dark:bg-dark-fonts flex items-center justify-center">
+      <button
+        style={buttonStyle}
+        className={`dark:hover:bg-dark-background dark:bg-dark-fonts`}
+      >
         <Image
-          src={theme === 'light' ? submitIcon : submitIconWhite}
+          src={image}
+          className=""
           alt="Alternar Tema"
+          onMouseOver={mouseOverHandler}
+          onMouseLeave={mouseLeaveHandler}
         />
       </button>
     </form>

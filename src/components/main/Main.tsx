@@ -3,7 +3,7 @@ import backgroundImage from '../../../public/selecao-brasileira-masc.svg'
 
 const Main = () => {
   return (
-    <div className="relative w-full h-full ">
+    <div id="main" className="relative w-full h-full ">
       <Image src={backgroundImage} className="w-full px-8 py-2 " alt="" />
       <section className="absolute inset-0 top-40 left-20 text-white flex flex-col  ">
         <h1 className="text-8xl font-giovanni -mb-4 ">Transforme </h1>

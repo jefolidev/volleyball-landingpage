@@ -11,7 +11,7 @@ import signoutIconWhite from '../../../public/navbar-icons/white-icons/signout-i
 export const Navbar = () => {
   const { theme, toggleTheme } = useTheme()
   return (
-    <nav className="flex justify-around items-center h-14 py-10 ">
+    <nav id="start" className="flex justify-around items-center h-14 py-10 ">
       <div>
         <button>
           <Image
@@ -30,27 +30,27 @@ export const Navbar = () => {
               Início
             </li>
           </a>
-          <div className="w-1 h-3 bg-light-fonts dark:bg-dark-fonts rounded-full"></div>
+          <div className="w-1 h-3 bg-light-fonts dark:bg-dark-fonts rounded-full" />
           <a
-            href="#"
+            href="#treinos"
             className="hover:border-b-4 hover:border-light-fonts dark:hover:border-dark-fonts hover:transition-all hover:ease-out hover:duration-[30ms]"
           >
             <li className="text-2xl dark:text-dark-fonts text-light-fonts font-sequel ">
               Treinos
             </li>
           </a>
-          <div className="w-1 h-3 bg-light-fonts dark:bg-dark-fonts rounded-full"></div>
+          <div className="w-1 h-3 bg-light-fonts dark:bg-dark-fonts rounded-full" />
           <a
-            href="#"
+            href="#rachas"
             className="hover:border-b-4 hover:border-light-fonts dark:hover:border-dark-fonts hover:transition-all hover:ease-out hover:duration-[30ms]"
           >
             <li className="text-2xl dark:text-dark-fonts text-light-fonts font-sequel ">
               Rachas
             </li>
           </a>
-          <div className="w-1 h-3 bg-light-fonts dark:bg-dark-fonts rounded-full"></div>
+          <div className="w-1 h-3 bg-light-fonts dark:bg-dark-fonts rounded-full" />
           <a
-            href="#"
+            href="#footer"
             className="hover:border-b-4 hover:border-light-fonts dark:hover:border-dark-fonts hover:transition-all hover:ease-out hover:duration-[30ms]"
           >
             <li className="text-2xl dark:text-dark-fonts text-light-fonts font-sequel ">
@@ -59,14 +59,16 @@ export const Navbar = () => {
           </a>
         </ul>
       </div>
-      <div className="flex items-center justify-center">
+      <div className="flex items-center justify-center gap-3">
         <button onClick={toggleTheme}>
           <Image
             src={theme === 'light' ? themeIcon : nightIconWhite}
-            className={theme === 'dark' ? `w-5 ` : ''}
+            className={theme === 'dark' ? `w-4 mr-1 ` : ''}
             alt="Alternar Tema"
           />
         </button>
+        <div className="w-0.5 h-3 bg-light-fonts dark:bg-dark-fonts rounded-full" />
+
         <button>
           <Image
             src={theme === 'light' ? signoutIcon : signoutIconWhite}
