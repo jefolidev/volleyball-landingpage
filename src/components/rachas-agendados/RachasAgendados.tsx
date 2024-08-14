@@ -1,7 +1,7 @@
 import BusyDays from './components/BusyDays'
-import Calendar from './components/Calendar'
+import Calendar from './components/calendar/Calendar'
 
-const Calendario = () => {
+const RachasAgendados = () => {
   return (
     <>
       <h1
@@ -10,7 +10,7 @@ const Calendario = () => {
       >
         Rachas agendados
       </h1>
-      <main className="w-full h-full flex justify-around gap-12 bg-gray-300 dark:bg-zinc-900 px-32 py-8">
+      <main className="w-full h-full flex justify-around items-center gap-12 bg-gray-300 dark:bg-zinc-900 px-32 py-8">
         <Calendar />
         <BusyDays />
       </main>
@@ -18,4 +18,4 @@ const Calendario = () => {
   )
 }
 
-export default Calendario
+export default RachasAgendados
