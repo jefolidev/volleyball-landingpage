@@ -2,12 +2,15 @@
 
 import { useTheme } from '@/contexts/themeContext'
 
+import CalendarProvider from '@/contexts/calendarContext'
 const ClientLayout = ({ children }: { children: React.ReactNode }) => {
   const { theme } = useTheme()
   return (
-    <html lang="pt-BR" className={theme}>
-      <body>{children}</body>
-    </html>
+    <CalendarProvider>
+      <html lang="pt-BR" className={theme}>
+        <body>{children}</body>
+      </html>
+    </CalendarProvider>
   )
 }
 

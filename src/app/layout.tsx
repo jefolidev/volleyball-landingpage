@@ -1,9 +1,6 @@
-import type { Metadata } from 'next'
-
-import { ThemeProvider } from '@/contexts/themeContext'
-
 import ClientLayout from '@/components/client/ClientLayout'
-import CalendarProvider from '@/contexts/calendarContext'
+import { ThemeProvider } from '@/contexts/themeContext'
+import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -17,9 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <ThemeProvider>
-      <CalendarProvider>
-        <ClientLayout>{children}</ClientLayout>
-      </CalendarProvider>
+      <ClientLayout>{children}</ClientLayout>
     </ThemeProvider>
   )
 }

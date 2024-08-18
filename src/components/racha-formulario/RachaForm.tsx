@@ -7,7 +7,7 @@ const RachaForm = () => {
       <section className="flex flex-col items-center gap-2">
         <div className="flex gap-2">
           <h1 className="text-5xl font-sequel text-light-fonts dark:text-dark-fonts">
-            Ajude{' '}
+            Ajude
           </h1>
           <h1 className="text-5xl font-giovanni text-light-fonts dark:text-dark-fonts">
             aumentar
