@@ -1,10 +1,8 @@
+import { useForm } from '@/contexts/formContext'
 import { useTheme } from '@/contexts/themeContext'
 import { createTheme, Slider, ThemeProvider } from '@mui/material'
-import { Dispatch, SetStateAction } from 'react'
 
 type HoursSwiperProps = {
-  value: number
-  setValue: Dispatch<SetStateAction<number>>
   valueLabelFormat: (value: number) => string
 }
 
@@ -19,17 +17,9 @@ const slideTheme = createTheme({
   },
 })
 
-const HoursSwiper = ({
-  value,
-  setValue,
-  valueLabelFormat,
-}: HoursSwiperProps) => {
-  const swiperHandler = (event: Event, newValue: number | number[]) => {
-    setValue(newValue as number)
-  }
-
+const HoursSwiper = ({ valueLabelFormat }: HoursSwiperProps) => {
   const { theme } = useTheme()
-
+  const { selectedHour, handleSliderChange } = useForm()
   return (
     <ThemeProvider theme={slideTheme}>
       <Slider
@@ -42,8 +32,8 @@ const HoursSwiper = ({
         max={22}
         getAriaValueText={valueLabelFormat}
         valueLabelFormat={valueLabelFormat}
-        onChange={swiperHandler}
-        value={value}
+        onChange={handleSliderChange}
+        value={parseInt(selectedHour)}
       />
     </ThemeProvider>
   )

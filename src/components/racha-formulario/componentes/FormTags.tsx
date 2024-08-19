@@ -74,7 +74,7 @@ const FormTags = () => {
             style={getButtonStyle(tag.index)}
             className="text-center font-sequel dark:bg-gray-100 w-36 h-10 dark p-2 mx-2 px-6 py-3 rounded-full cursor-pointer"
             onClick={() => selectButtonHandler(tag.index)}
-          >
+          > 
             {tag.tagName}
           </label>
         ))}

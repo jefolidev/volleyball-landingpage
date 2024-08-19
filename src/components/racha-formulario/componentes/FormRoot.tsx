@@ -2,13 +2,13 @@
 
 import FormRange from './form-swiper/HoursRoot'
 import FormButton from './FormButton'
-import FormDays from './FormDaysOfWeek'
 import FormInputs from './FormInputs'
 import FormTags from './FormTags'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
+import FormWeek from './FormWeek'
 
 const gamesFormSchema = z.object({
   name: z
@@ -62,13 +62,7 @@ const Form = () => {
         Dias
       </h1>
       <div className="flex gap-5">
-        <FormDays>D</FormDays>
-        <FormDays>S</FormDays>
-        <FormDays>T</FormDays>
-        <FormDays>Q</FormDays>
-        <FormDays>Q</FormDays>
-        <FormDays>S</FormDays>
-        <FormDays>S</FormDays>
+        <FormWeek />
       </div>
       <h1 className="text-sequel text-light-fonts dark:text-dark-fonts text-4xl p-5">
         Horário
