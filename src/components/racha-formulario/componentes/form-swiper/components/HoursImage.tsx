@@ -6,13 +6,13 @@ import dayIconWhite from '../../../../../../public/form-icons/dark-icons/sun-ico
 import dayIcon from '../../../../../../public/form-icons/day.svg'
 import nightIcon from '../../../../../../public/form-icons/night.svg'
 
-const HoursImage = ({ value }: { value: number }) => {
+const HoursImage = ({ hour }: { hour: number }) => {
   const { theme } = useTheme()
   const hourAndThemeHandler = () => {
     if (theme === 'light') {
-      if (value >= 18 || value <= 6) return nightIcon
+      if (hour >= 18 || hour <= 6) return nightIcon
       else return dayIcon
-    } else if (value >= 18 || value <= 6) return nightIconWhite
+    } else if (hour >= 18 || hour <= 6) return nightIconWhite
     else return dayIconWhite
   }
   return <Image src={hourAndThemeHandler()} alt="Alternar Tema" />

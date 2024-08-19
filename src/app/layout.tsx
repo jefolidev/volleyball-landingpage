@@ -1,4 +1,5 @@
 import ClientLayout from '@/components/client/ClientLayout'
+import FormProvider from '@/contexts/formContext'
 import { ThemeProvider } from '@/contexts/themeContext'
 import type { Metadata } from 'next'
 import './globals.css'
@@ -13,8 +14,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <ThemeProvider>
-      <ClientLayout>{children}</ClientLayout>
-    </ThemeProvider>
+    <FormProvider>
+      <ThemeProvider>
+        <ClientLayout>{children}</ClientLayout>
+      </ThemeProvider>
+    </FormProvider>
   )
 }
