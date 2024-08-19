@@ -19,20 +19,33 @@ declare module '@mui/material/Button' {
 }
 
 const FormHoursRange = () => {
-  const { selectedHour } = useForm()
+  const {
+    selectedDayHour,
+    selectedNightHour,
+    handleSliderDayChange,
+    handleSliderNightChange,
+  } = useForm()
   return (
     <div className="flex gap-12">
       <div className="flex flex-col items-center">
         <HoursTitle className="text-2xl font-normal font-sequel dark:text-dark-fonts ">
           Início
         </HoursTitle>
-        <HoursBody hour={parseInt(selectedHour)} />
+        <HoursBody
+          value={selectedDayHour}
+          hour={parseInt(selectedDayHour)}
+          onChange={handleSliderDayChange}
+        />
       </div>
       <div className="flex flex-col items-center">
         <HoursTitle className="text-2xl font-normal font-sequel dark:text-dark-fonts ">
           Fim
         </HoursTitle>
-        <HoursBody hour={parseInt(selectedHour)} />
+        <HoursBody
+          value={selectedNightHour}
+          hour={parseInt(selectedNightHour)}
+          onChange={handleSliderNightChange}
+        />
       </div>
     </div>
   )

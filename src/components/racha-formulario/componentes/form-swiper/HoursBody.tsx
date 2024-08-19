@@ -3,7 +3,13 @@ import HoursImage from './components/HoursImage'
 import HoursLabel from './components/HoursLabel'
 import HoursSwiper from './components/HoursSwiper'
 
-const HoursBody = ({ hour }: { hour: number }) => {
+type HoursBodyProps = {
+  hour: number
+  value: string
+  onChange: (event: Event, newValue: number | number[]) => void
+}
+
+const HoursBody = ({ hour, onChange, value }: HoursBodyProps) => {
   function valueLabelFormat(value: number) {
     let hoursValue = value
     hoursValue += 1
@@ -13,7 +19,11 @@ const HoursBody = ({ hour }: { hour: number }) => {
 
   return (
     <div className="flex flex-col items-center justify-center">
-      <HoursSwiper valueLabelFormat={valueLabelFormat} />
+      <HoursSwiper
+        valueLabelFormat={valueLabelFormat}
+        onChange={onChange}
+        value={value}
+      />
       <div className="flex items-center justify-center">
         <HoursLabel className="text-base text-light-fonts dark:text-dark-fonts font-sequel">
           {valueLabelFormat(hour)}
