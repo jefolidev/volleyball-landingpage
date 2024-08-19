@@ -9,21 +9,32 @@ import {
 } from 'react'
 
 type FormContextProps = {
+  selectedDayHour: string
+  selectedNightHour: string
   selectedDays: string[]
   setSelectedDays: Dispatch<SetStateAction<never[]>>
-  selectedHour: string
-  setSelectedHour: Dispatch<SetStateAction<string>>
-  handleSliderChange: (event: Event, newValue: number | number[]) => void
+  setSelectedDayHour: Dispatch<SetStateAction<string>>
+  setSelectedNightHour: Dispatch<SetStateAction<string>>
+  handleSliderDayChange: (event: Event, newValue: number | number[]) => void
+  handleSliderNightChange: (event: Event, newValue: number | number[]) => void
 }
 
 const FormContext = createContext({} as FormContextProps)
 
 export const FormProvider = ({ children }: { children: React.ReactNode }) => {
   const [selectedDays, setSelectedDays] = useState([])
-  const [selectedHour, setSelectedHour] = useState('')
 
-  const handleSliderChange = (event: Event, newValue: number | number[]) => {
-    setSelectedHour(newValue.toString())
+  const [selectedDayHour, setSelectedDayHour] = useState('0')
+  const [selectedNightHour, setSelectedNightHour] = useState('0')
+
+  const handleSliderDayChange = (event: Event, newValue: number | number[]) => {
+    setSelectedDayHour(newValue.toString())
+  }
+  const handleSliderNightChange = (
+    event: Event,
+    newValue: number | number[]
+  ) => {
+    setSelectedNightHour(newValue.toString())
   }
 
   return (
@@ -31,9 +42,12 @@ export const FormProvider = ({ children }: { children: React.ReactNode }) => {
       value={{
         selectedDays,
         setSelectedDays,
-        selectedHour,
-        setSelectedHour,
-        handleSliderChange,
+        selectedDayHour,
+        setSelectedDayHour,
+        selectedNightHour,
+        setSelectedNightHour,
+        handleSliderDayChange,
+        handleSliderNightChange,
       }}
     >
       {children}
