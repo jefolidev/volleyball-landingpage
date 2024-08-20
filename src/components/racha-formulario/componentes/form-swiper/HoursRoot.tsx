@@ -1,4 +1,5 @@
 import { useForm } from '@/contexts/formContext'
+
 import HoursTitle from './components/HoursLabel'
 import HoursBody from './HoursBody'
 
@@ -25,6 +26,7 @@ const FormHoursRange = () => {
     handleSliderDayChange,
     handleSliderNightChange,
   } = useForm()
+
   return (
     <div className="flex gap-12">
       <div className="flex flex-col items-center">

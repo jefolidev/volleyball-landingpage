@@ -3,7 +3,7 @@ import { forwardRef } from 'react'
 
 type FormInputsProps = React.InputHTMLAttributes<HTMLInputElement>
 
-const FormInputs = forwardRef<HTMLInputElement, FormInputsProps>(
+const FormInput = forwardRef<HTMLInputElement, FormInputsProps>(
   (props, ref) => {
     return (
       <input
@@ -15,4 +15,4 @@ const FormInputs = forwardRef<HTMLInputElement, FormInputsProps>(
   }
 )
 
-export default FormInputs
+export default FormInput

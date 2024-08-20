@@ -1,6 +1,6 @@
 import { useTheme } from '@/contexts/themeContext'
 import Image from 'next/image'
-import submitIcon from '../../../../public/form-icons/submitIcon.svg'
+import submitIcon from '../../../../../public/form-icons/submitIcon.svg'
 
 const FormButton = ({
   ...props

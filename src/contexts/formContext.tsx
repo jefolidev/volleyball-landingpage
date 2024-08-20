@@ -1,28 +1,27 @@
 'use client'
+import { FormContextProps } from '@/types/formContextType'
+import { GamesFormSchema } from '@/types/formTypes'
 /* eslint-disable prettier/prettier */
-import {
-  createContext,
-  Dispatch,
-  SetStateAction,
-  useContext,
-  useState,
-} from 'react'
-
-type FormContextProps = {
-  selectedDayHour: string
-  selectedNightHour: string
-  selectedDays: string[]
-  setSelectedDays: Dispatch<SetStateAction<never[]>>
-  setSelectedDayHour: Dispatch<SetStateAction<string>>
-  setSelectedNightHour: Dispatch<SetStateAction<string>>
-  handleSliderDayChange: (event: Event, newValue: number | number[]) => void
-  handleSliderNightChange: (event: Event, newValue: number | number[]) => void
-}
+import { createContext, useContext, useState } from 'react'
 
 const FormContext = createContext({} as FormContextProps)
 
 export const FormProvider = ({ children }: { children: React.ReactNode }) => {
-  const [selectedDays, setSelectedDays] = useState([])
+  const [formData, setFormData] = useState<GamesFormSchema>({
+    name: '',
+    adress: '',
+    district: '',
+    reference: '',
+    days: [],
+    startHour: '',
+    endHour: '',
+    tags: [],
+    dificulty: '',
+  })
+  const [selectedDays, setSelectedDays] = useState<string[]>([])
+
+  const [selectedTags, setSelectedTags] = useState<string[]>([])
+  const [selectedDifficulty, setSelectedDifficulty] = useState<string>('')
 
   const [selectedDayHour, setSelectedDayHour] = useState('0')
   const [selectedNightHour, setSelectedNightHour] = useState('0')
@@ -40,8 +39,14 @@ export const FormProvider = ({ children }: { children: React.ReactNode }) => {
   return (
     <FormContext.Provider
       value={{
+        formData,
+        setFormData,
         selectedDays,
+        selectedDifficulty,
+        setSelectedDifficulty,
         setSelectedDays,
+        selectedTags,
+        setSelectedTags,
         selectedDayHour,
         setSelectedDayHour,
         selectedNightHour,

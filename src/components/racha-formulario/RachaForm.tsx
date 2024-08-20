@@ -3,7 +3,7 @@ import Form from './componentes/FormRoot'
 
 const RachaForm = () => {
   return (
-    <main id="form" className="w-full h-full py-8">
+    <main id="formulario" className="w-full h-full py-8">
       <section className="flex flex-col items-center gap-2">
         <div className="flex gap-2">
           <h1 className="text-5xl font-sequel text-light-fonts dark:text-dark-fonts">

@@ -10,9 +10,9 @@ const HoursImage = ({ hour }: { hour: number }) => {
   const { theme } = useTheme()
   const hourAndThemeHandler = () => {
     if (theme === 'light') {
-      if (hour >= 18 || hour <= 6) return nightIcon
+      if (hour >= 18 || hour <= 4) return nightIcon
       else return dayIcon
-    } else if (hour >= 18 || hour <= 6) return nightIconWhite
+    } else if (hour >= 18 || hour <= 4) return nightIconWhite
     else return dayIconWhite
   }
   return <Image src={hourAndThemeHandler()} alt="Alternar Tema" />

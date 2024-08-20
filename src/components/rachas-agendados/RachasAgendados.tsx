@@ -5,7 +5,7 @@ const RachasAgendados = () => {
   return (
     <>
       <h1
-        id="calendar"
+        id="calendario"
         className="font-giovanni text-5xl text-center p-10 text-light-fonts dark:text-dark-fonts"
       >
         Rachas agendados
