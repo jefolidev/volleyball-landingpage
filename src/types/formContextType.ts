@@ -1,9 +1,9 @@
 import { Dispatch, SetStateAction } from 'react'
-import { GamesFormSchema } from './formTypes'
+import { GamesFormItem } from './formTypes'
 
 export type FormContextProps = {
-  formData: GamesFormSchema
-  setFormData: Dispatch<SetStateAction<GamesFormSchema>>
+  formData: GamesFormItem
+  setFormData: Dispatch<SetStateAction<GamesFormItem>>
   selectedDayHour: string
   selectedNightHour: string
   selectedDays: string[]
