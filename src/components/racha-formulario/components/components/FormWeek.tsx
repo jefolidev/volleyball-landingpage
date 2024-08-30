@@ -1,6 +1,8 @@
-import { useForm } from '@/contexts/formContext'
-import { useTheme } from '@/contexts/themeContext'
+import { useForm } from '@/contexts/useForm'
+import { useTheme } from '@/contexts/useTheme'
 import { useState } from 'react'
+
+import colors from 'tailwindcss/colors'
 
 const FormWeek = () => {
   const { selectedDays, setSelectedDays } = useForm()
@@ -42,20 +44,20 @@ const FormWeek = () => {
     if (theme === 'light') {
       return {
         backgroundColor: selectedDays.includes(day)
-          ? 'rgb(12,22,24)'
-          : 'rgb(209, 213, 219)',
+          ? colors.slate['900']
+          : colors.slate['300'],
         color: selectedDays.includes(day)
-          ? 'rgb(209, 213, 219)'
-          : 'rgb(12,22,24)',
+          ? colors.slate['100']
+          : colors.slate['900'],
       }
     } else {
       return {
         backgroundColor: selectedDays.includes(day)
-          ? 'rgb(12,22,24)'
-          : 'rgb(209, 213, 219)',
+          ? colors.zinc['700']
+          : colors.zinc['200'],
         color: selectedDays.includes(day)
-          ? 'rgb(209, 213, 219)'
-          : 'rgb(12,22,24)',
+          ? colors.slate['100']
+          : colors.slate['900'],
       }
     }
   }
@@ -69,7 +71,7 @@ const FormWeek = () => {
   return daysWeek.map((d) => (
     <label
       key={d.day}
-      className="w-10 h-10 flex items-center justify-center bg-zinc-300 dark:bg-zinc-100 hover:bg-zinc-600 dark:hover:bg-zinc-400 text-lg text-zinc-100 dark:text-zinc-800 rounded-full cursor-pointer"
+      className="w-10 h-10 flex items-center justify-center bg-zinc-300 dark:bg-zinc-100 hover:bg-zinc-600 dark:hover:bg-zinc-400 text-lg text-zinc-100 dark:text-zinc-800 rounded-full cursor-pointer font-medium font-sequel"
       style={getButtonStyle(d.name)}
       onClick={() => selectButtonHandler(d.name)}
     >

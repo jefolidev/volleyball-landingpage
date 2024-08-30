@@ -1,9 +1,16 @@
+/* eslint-disable prettier/prettier */
 import Image from 'next/image'
 import { FormEvent, useEffect, useRef, useState } from 'react'
 import filter from '../../../../../public/searcher/filter-icon.svg'
 import RachaFilterModal from '../modals/RachaFilterModal'
 
-const RachaInput = () => {
+const RachaInput = ({
+  onChange,
+  value,
+}: {
+  onChange: React.ChangeEventHandler<HTMLInputElement>
+  value: string
+}) => {
   const [isModalFilterOpen, setIsModelFilterOpen] = useState(false)
   const [isModalOrderOpen, setIsModelOrderOpen] = useState(false)
 
@@ -13,7 +20,6 @@ const RachaInput = () => {
   function openFilterModal(e: FormEvent) {
     if (isModalOrderOpen === true) setIsModelOrderOpen(false)
     setIsModelFilterOpen((prevState) => !prevState)
-
     e.preventDefault()
   }
 
@@ -45,16 +51,13 @@ const RachaInput = () => {
         <div className="flex items-center justify-end">
           <input
             type="text"
-            className="w-[34rem] p-3 rounded-full bg-white text-sm font-sequel shadow-md"
+            className="w-[34rem] p-3 rounded-full bg-white dark:bg-[#FBFCF8] text-sm font-sequel shadow-md"
             placeholder="Procure por algo"
-          />
-          <input
-            type="button"
-            value=""
-            className="w-12 py-2 px-4 rounded-3xl bg-light-fonts mx-3 cursor-pointer shadow-md"
+            value={value}
+            onChange={onChange}
           />
         </div>
-        <div className="w-15 py-3 px-5 rounded-full bg-white flex items-center justify-center gap-6 shadow-md">
+        <div className="w-15 py-3 px-5 rounded-full bg-white dark:bg-[#FBFCF8] flex items-center justify-center gap-6 shadow-md">
           <button
             className="flex items-center justify-center gap-2 "
             onClick={openFilterModal}

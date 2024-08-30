@@ -1,4 +1,4 @@
-import { useTheme } from '@/contexts/themeContext'
+import { useTheme } from '@/contexts/useTheme'
 import { createTheme, Slider, ThemeProvider } from '@mui/material'
 
 type HoursSwiperProps = {

@@ -1,8 +1,8 @@
 'use client'
 
-import { useTheme } from '@/contexts/themeContext'
+import { useTheme } from '@/contexts/useTheme'
 
-import CalendarProvider from '@/contexts/calendarContext'
+import CalendarProvider from '@/contexts/useCalendar'
 const ClientLayout = ({ children }: { children: React.ReactNode }) => {
   const { theme } = useTheme()
   return (

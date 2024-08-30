@@ -7,9 +7,11 @@ import FormRange from './form-swiper/HoursRoot'
 
 import { FormEvent, FormEventHandler, useState } from 'react'
 
-import { useForm } from '@/contexts/formContext'
+import { useForm } from '@/contexts/useForm'
 import FormInput from './components/FormInput'
 import FormWeek from './components/FormWeek'
+
+import { Toaster, toast } from 'sonner'
 
 type TInputValues = {
   name: string
@@ -27,31 +29,39 @@ const Form = () => {
     selectedDifficulty,
     selectedTags,
   } = useForm()
-
   const [inputValues, setInputValues] = useState<TInputValues>({
     name: '',
     adress: '',
     district: '',
   })
 
-  const datas = {
-    name: inputValues.name,
-    adress: inputValues.adress,
-    district: inputValues.district,
-    days: selectedDays,
-    startHour: selectedDayHour,
-    endHour: selectedNightHour,
-    tags: selectedTags,
-    dificulty: selectedDifficulty,
-  }
-
   const formHandleSubmit: FormEventHandler<HTMLFormElement> | undefined = (
     e: FormEvent
   ) => {
     e.preventDefault()
-    const newFormData = [...formData, datas]
-    setFormData(newFormData)
-    // formData.push(datas)
+    if (
+      selectedDays.length === 0 ||
+      selectedTags.length === 0 ||
+      selectedDifficulty.length === 0
+    ) {
+      toast.error('Preencha todos os campos')
+      return
+    }
+
+    toast.success('Formulário enviado!')
+    setFormData([
+      ...formData,
+      {
+        name: inputValues.name,
+        adress: inputValues.adress,
+        district: inputValues.district,
+        days: selectedDays,
+        startHour: selectedDayHour,
+        endHour: selectedNightHour,
+        tags: selectedTags,
+        dificulty: selectedDifficulty,
+      },
+    ])
   }
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -67,23 +77,27 @@ const Form = () => {
       onSubmit={formHandleSubmit}
       className="flex flex-col items-center p-8"
     >
+      <Toaster richColors />
       <div className="flex gap-8">
         <FormInput
           required
           placeholder="Nome (ex: Praça da 14)"
           name="name"
+          value={inputValues.name}
           onChange={handleInputChange}
         />
         <FormInput
           required
           placeholder="Endereço"
           name="adress"
+          value={inputValues.adress}
           onChange={handleInputChange}
         />
         <FormInput
           required
           placeholder="Bairro"
           name="district"
+          value={inputValues.district}
           onChange={handleInputChange}
         />
       </div>

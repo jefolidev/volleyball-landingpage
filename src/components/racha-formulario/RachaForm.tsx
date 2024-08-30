@@ -1,5 +1,5 @@
 'use client'
-import Form from './componentes/FormRoot'
+import Form from './components/FormRoot'
 
 const RachaForm = () => {
   return (

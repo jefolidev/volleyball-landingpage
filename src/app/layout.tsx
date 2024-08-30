@@ -1,6 +1,7 @@
 import ClientLayout from '@/components/client/ClientLayout'
-import FormProvider from '@/contexts/formContext'
-import { ThemeProvider } from '@/contexts/themeContext'
+import FilterProvider from '@/contexts/useFilter'
+import FormProvider from '@/contexts/useForm'
+import { ThemeProvider } from '@/contexts/useTheme'
 import type { Metadata } from 'next'
 import './globals.css'
 
@@ -16,7 +17,9 @@ export default function RootLayout({
   return (
     <FormProvider>
       <ThemeProvider>
-        <ClientLayout>{children}</ClientLayout>
+        <FilterProvider>
+          <ClientLayout>{children}</ClientLayout>
+        </FilterProvider>
       </ThemeProvider>
     </FormProvider>
   )

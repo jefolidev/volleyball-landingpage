@@ -1,7 +1,9 @@
 /* eslint-disable prettier/prettier */
-import { useForm } from '@/contexts/formContext'
-import { useTheme } from '@/contexts/themeContext'
+import { useForm } from '@/contexts/useForm'
+import { useTheme } from '@/contexts/useTheme'
 import { useState } from 'react'
+
+import colors from 'tailwindcss/colors'
 
 const FormTags = () => {
   const {
@@ -60,23 +62,23 @@ const FormTags = () => {
       return {
         backgroundColor:
           selectedTags.includes(tag) || selectedDifficulty.includes(tag)
-            ? 'rgb(12,22,24)'
-            : 'rgb(209, 213, 219)',
+            ? colors.slate['900']
+            : colors.slate['300'],
         color:
           selectedTags.includes(tag) || selectedDifficulty.includes(tag)
-            ? 'rgb(209, 213, 219)'
-            : 'rgb(12,22,24)',
+            ? colors.slate['100']
+            : colors.slate['900'],
       }
     } else {
       return {
         backgroundColor:
           selectedTags.includes(tag) || selectedDifficulty.includes(tag)
-            ? 'rgb(12,22,24)'
-            : 'rgb(209, 213, 219)',
+            ? colors.zinc['700']
+            : colors.zinc['200'],
         color:
           selectedTags.includes(tag) || selectedDifficulty.includes(tag)
-            ? 'rgb(209, 213, 219)'
-            : 'rgb(12,22,24)',
+            ? colors.slate['200']
+            : colors.slate['700'],
       }
     }
   }

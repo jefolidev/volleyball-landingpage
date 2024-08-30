@@ -1,5 +1,5 @@
 'use client'
-import { useTheme } from '@/contexts/themeContext'
+import { useTheme } from '@/contexts/useTheme'
 import Image from 'next/image'
 import nightIconWhite from '../../../public/form-icons/dark-icons/moon-icon-dark.svg'
 import themeIcon from '../../../public/navbar-icons/theme-icon.svg'
@@ -13,7 +13,7 @@ export const Navbar = () => {
         <ul className="flex items-center gap-7 ">
           <a
             href="#"
-            className="hover:border-b-4 hover:border-light-fonts dark:hover:border-dark-fonts hover:transition-all hover:ease-out hover:duration-[30ms]"
+            className="hover:border-b-4 hover:border-b-light-fonts dark:hover:border-b-dark-fonts hover:transition-all hover:ease-out hover:duration-[30ms]"
           >
             <li className="text-xl dark:text-dark-fonts text-light-fonts font-sequel ">
               Início

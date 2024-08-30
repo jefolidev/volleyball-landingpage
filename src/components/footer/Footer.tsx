@@ -1,7 +1,7 @@
 'use client'
 import Image from 'next/image'
 
-import { useTheme } from '@/contexts/themeContext'
+import { useTheme } from '@/contexts/useTheme'
 import gitIconWhite from '../../../public/github-icon-white.svg'
 import gitIcon from '../../../public/githubIcon.svg'
 import linkedinIconWhite from '../../../public/linkedin-icon-white.svg'

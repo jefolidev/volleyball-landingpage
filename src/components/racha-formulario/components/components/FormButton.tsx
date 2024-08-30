@@ -1,4 +1,4 @@
-import { useTheme } from '@/contexts/themeContext'
+import { useTheme } from '@/contexts/useTheme'
 import Image from 'next/image'
 import submitIcon from '../../../../../public/form-icons/submitIcon.svg'
 

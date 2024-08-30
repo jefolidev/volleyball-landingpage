@@ -1,5 +1,5 @@
 'use client'
-import { useCalendar } from '@/contexts/calendarContext'
+import { useCalendar } from '@/contexts/useCalendar'
 
 const BusyDays = () => {
   const { currentDate, month, scheduledGame, monthHandler } = useCalendar()

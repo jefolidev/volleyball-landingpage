@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { useCalendar } from '@/contexts/calendarContext'
+import { useCalendar } from '@/contexts/useCalendar'
 import {
   addMonths,
   eachDayOfInterval,
@@ -30,7 +30,7 @@ const CalendarBody = () => {
   const lastDayofPrevMonth = getDate(lastDateOfPrevMonth)
 
   const currentDayStyle =
-    'bg-light-fonts rounded-full text-white hover:bg-gray-950'
+    'bg-light-fonts rounded-full text-white hover:bg-gray-950 '
 
   const intervalBetweenDays = eachDayOfInterval({
     start: addMonths(firstDayOfMonth, 1),
@@ -91,7 +91,7 @@ const CalendarBody = () => {
             key={index}
             className={`
        flex items-center justify-center w-14 h-14 text-2xl cursor-default
-        ${isToday(new Date(currentDate.getFullYear(), currentDate.getMonth(), day)) ? currentDayStyle : ''} 
+        ${isToday(new Date(currentDate.getFullYear(), currentDate.getMonth(), day)) && isPlaceholder === false ? currentDayStyle : ''} 
         ${
           hasGame && isPlaceholder === false
             ? `after:relative after:inset-y-5 ${day > 9 ? `after:-inset-x-[1.10rem]` : `after:-inset-x-3`} 

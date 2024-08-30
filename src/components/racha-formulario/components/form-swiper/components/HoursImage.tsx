@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-import { useTheme } from '@/contexts/themeContext'
+import { useTheme } from '@/contexts/useTheme'
 import nightIconWhite from '../../../../../../public/form-icons/dark-icons/moon-icon-dark.svg'
 import dayIconWhite from '../../../../../../public/form-icons/dark-icons/sun-icon-dark.svg'
 import dayIcon from '../../../../../../public/form-icons/day.svg'

@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 'use client'
-import { FormContextProps } from '@/types/formContextType'
-import { GamesFormItem } from '@/types/formTypes'
+import { FormContextProps } from '@/@types/formContextType'
+import { GamesFormItem } from '@/@types/formTypes'
 import { createContext, useContext, useState } from 'react'
 
 const FormContext = createContext({} as FormContextProps)

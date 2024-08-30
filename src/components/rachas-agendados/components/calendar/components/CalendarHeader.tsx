@@ -1,4 +1,4 @@
-import { useCalendar } from '@/contexts/calendarContext'
+import { useCalendar } from '@/contexts/useCalendar'
 import { addMonths, format, subMonths } from 'date-fns'
 
 const CalendarHeader = () => {
